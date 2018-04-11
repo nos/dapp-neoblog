@@ -3,5 +3,8 @@
     "react",
     "env"
   ],
-  "plugins": ["transform-class-properties"]
+  "plugins": [
+    ["transform-object-rest-spread", { "useBuiltIns": true }],
+    "transform-class-properties"
+  ]
 }
