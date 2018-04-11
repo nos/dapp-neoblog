@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Components SpinningLogo should render 1`] = `
+<div
+  class="SpinningLogo-logoContainer-0-1-1"
+>
+  <img
+    alt="parcelBack"
+    class="SpinningLogo-parcelBack-0-1-2"
+    src="test-file-stub"
+  />
+  <img
+    alt="parcelReact"
+    class="SpinningLogo-parcelReact-0-1-3"
+    src="test-file-stub"
+  />
+  <img
+    alt="parcelFront"
+    class="SpinningLogo-parcelFront-0-1-4"
+    src="test-file-stub"
+  />
+</div>
+`;
