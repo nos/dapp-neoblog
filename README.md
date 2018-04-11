@@ -2,97 +2,25 @@
   <img src="./logo.png" width="150px" /> 
 </p>
 
-<h1 align="center">react-stack-boilerplate</h1>
+<h1 align="center">neoblog on nOs</h1>
 
 <p align="center">
   This creates a project <strong>boilerplate</strong> for <strong>React</strong> with a custom stack
 </p>
 
-<p align="center">
-  <a href="https://github.com/jeroenptrs/react-stack-boilerplate/releases">
-    <img src="https://img.shields.io/github/tag/jeroenptrs/react-stack-boilerplate.svg?style=flat">
-  </a>
-  <a href='https://travis-ci.org/jeroenptrs/react-stack-boilerplate?branch=master'>
-    <img src='https://travis-ci.org/jeroenptrs/react-stack-boilerplate.svg?branch=master' alt='Build Status' />
-  </a>
-  <a href='https://coveralls.io/github/jeroenptrs/react-stack-boilerplate?branch=master'>
-    <img src='https://coveralls.io/repos/github/jeroenptrs/react-stack-boilerplate/badge.svg?branch=master' alt='Coverage Status' />
-  </a>
-  <a href='https://gemnasium.com/github.com/jeroenptrs/react-stack-boilerplate'>
-    <img src="https://gemnasium.com/badges/github.com/jeroenptrs/react-stack-boilerplate.svg" alt="Dependency Status" />
-  </a>
-  <a href="https://deepscan.io/dashboard#view=project&pid=2165&bid=11342">
-    <img src="https://deepscan.io/api/projects/2165/branches/11342/badge/grade.svg" alt="DeepScan grade">
-  </a>
-  <img src='https://bettercodehub.com/edge/badge/jeroenptrs/react-stack-boilerplate?branch=master'>
-  <a href='https://github.com/prettier/prettier'>
-    <img src='https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat'>
-  </a>
-</p>
-
-<p align="center">
-  <img src="./exampleScreenshot.png" /> 
-</p>
-
 ## Purpose
-The goal of this project is to provide a quickstart in React with various, albeit opinionated, dependencies already installed and configured. Additionally, it's a way to provide good practices for repo management.
-
-In this repo you can find:
-* React, our framework of choice
-* JSS, CSS in JSS
-* Jest, a testing framework
-* Babel, transpiling React and ES6 made ezpz
-* Parcel, a kickass bundler
-* Prettier and ESLint, kickass linting support
-
-Also some plugins:
-* vendor prefixing, camelCase and global styling JSS plugins
-* env and React Babel presets
-* babel-polyfill
-* React and Prettier ESLint plugins
-
-And finally some testing and security:
-* Travis CI, automated builds/testing
-* Coveralls, code coverage
-* Deepscan and Better Code Hub, code analysis
-* Gemnasium and Renovate, dependency monitoring
+The goal is to provide an implementation of NeoBlog on nOs.
 
 ## Setup
 ```bash
-$ git clone https://github.com/jeroenptrs/react-starter-boilerplate.git my-app
-$ cd my-app
+$ git clone https://github.com/nOs/example-neoblog.git
+$ cd example-neoblog
 $ yarn
 $ yarn start
 ```
 
-Change `README.md` and `package.json` to fit your project needs. Delete `LICENSE` if not applicable.
-
 ## Testing
 Use `yarn test:local` or `npm run test:local` to run all tests locally. The `test` command is reserved for CI builds.
-
-## Document structure
-```
-react-stack-boilerplate
-├── src
-│   ├── __helpers__
-│   ├── __mocks__
-│   ├── assets
-│   ├── components
-│   │   └── __tests__
-│   │       └── __snapshots__
-│   └── views
-│       └── __tests__
-│           └── __snapshots__
-├── .babelrc
-├── .eslintrc
-├── .gitignore
-├── CHANGELOG.md
-├── jest.config.js
-├── jest.setup.js
-├── package.json
-├── README.md
-└── yarn.lock
-```
 
 ## Project guidelines
 ### Branches

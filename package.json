@@ -4,6 +4,7 @@
   "description": "This creates a project boilerplate for React with a custom stack",
   "scripts": {
     "build": "",
+    "precommit": "yarn lint",
     "lint": "eslint 'src/**/*.js*'",
     "start": "parcel src/index.html",
     "test": "jest --all --verbose --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
