@@ -1,19 +1,7 @@
-/**
- * IMPORTS:
- * react
- * react-jss
- * prop-types
- */
 import React from "react";
 import injectSheet from "react-jss";
 import PropTypes from "prop-types";
 
-/**
- * Assets:
- * parcelBack: Parcel box backside
- * parcelFront: Parcel box frontside
- * parcelReact: React logo
- */
 import parcelBack from "./../../assets/parcel-back.png";
 import parcelFront from "./../../assets/parcel-front.png";
 import parcelReact from "./../../assets/logo.svg";
@@ -71,10 +59,6 @@ const SpinningLogo = ({ classes }) => (
   </div>
 );
 
-/**
- * PROPTYPES:
- * classes: object
- */
 SpinningLogo.propTypes = {
   classes: PropTypes.object.isRequired
 };

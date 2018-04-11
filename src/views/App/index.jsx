@@ -1,19 +1,7 @@
-/**
- * IMPORTS:
- * react
- * react-jss
- * prop-types
- */
 import React from "react";
 import injectSheet from "react-jss";
 import PropTypes from "prop-types";
 
-/**
- * COMPONENTS:
- * Button
- * Message
- * Header
- */
 import Button from "antd/lib/button";
 import Message from "antd/lib/message";
 import Header from "./../../components/Header";
@@ -33,9 +21,21 @@ const styles = {
   }
 };
 
+const hasNOS = () => (window.NOS && window.NOS.V1 ? "true" : "false");
+const api = window.NOS && window.NOS.V1 ? window.NOS.V1 : {};
+
 class App extends React.Component {
-  handleClick = () => {
-    Message.info("You clicked the button!");
+  handleClick = async () => {
+    if (hasNOS()) {
+      try {
+        const address = await api.getAddress();
+        Message.info(`Your address is ${address}`);
+      } catch (e) {
+        Message.info(e);
+      }
+    } else {
+      Message.info("You're not on nOs!");
+    }
   };
 
   render() {
@@ -55,10 +55,6 @@ class App extends React.Component {
   }
 }
 
-/**
- * PROPTYPES:
- * classes: object
- */
 App.propTypes = {
   classes: PropTypes.object.isRequired
 };

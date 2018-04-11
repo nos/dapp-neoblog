@@ -1,14 +1,3 @@
-/**
- * IMPORTS:
- * babel-polyfill
- * react
- * react-dom
- * jss
- * react-jss
- * jss-vendor-prefixer
- * jss-camel-case
- * antd
- */
 import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
@@ -21,10 +10,6 @@ import { JssProvider } from "react-jss";
 
 import "antd/dist/antd.css";
 
-/**
- * VIEWS:
- * App
- */
 import App from "./views/App";
 
 const jss = createJss();

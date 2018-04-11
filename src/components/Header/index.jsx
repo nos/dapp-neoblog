@@ -1,17 +1,7 @@
-/**
- * IMPORTS:
- * react
- * react-jss
- * prop-types
- */
 import React from "react";
 import injectSheet from "react-jss";
 import PropTypes from "prop-types";
 
-/**
- * COMPONENTS:
- * SpinningLogo
- */
 import SpinningLogo from "./../SpinningLogo";
 
 const styles = {
@@ -33,11 +23,6 @@ const Header = ({ classes, title }) => (
   </header>
 );
 
-/**
- * PROPTYPES:
- * classes: object
- * title: string
- */
 Header.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired
