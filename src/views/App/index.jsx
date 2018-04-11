@@ -26,15 +26,14 @@ const api = window.NOS && window.NOS.V1 ? window.NOS.V1 : {};
 
 class App extends React.Component {
   handleClick = async () => {
-    if (hasNOS()) {
-      try {
-        const address = await api.getAddress();
-        Message.info(`Your address is ${address}`);
-      } catch (e) {
-        Message.info(e);
-      }
-    } else {
-      Message.info("You're not on nOs!");
+    try {
+      Message.info(
+        hasNOS()
+          ? `Your address is ${await api.getAddress()}!`
+          : "You're not on nOs!"
+      );
+    } catch (e) {
+      Message.info(e);
     }
   };
 
