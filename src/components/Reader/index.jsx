@@ -2,6 +2,7 @@ import React from "react";
 import injectSheet from "react-jss";
 import PropTypes from "prop-types";
 import { create } from "axios";
+import ReactMarkdown from "react-markdown";
 
 import { injectStore } from "./../../store";
 
@@ -41,7 +42,9 @@ class Reader extends React.Component {
     return !content ? (
       <p className={classes.content}>Loading article content...</p>
     ) : (
-      <p className={classes.content}>{content}</p>
+      <div className={classes.content}>
+        <ReactMarkdown source={content} />
+      </div>
     );
   }
 }
