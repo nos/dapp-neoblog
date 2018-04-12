@@ -7,26 +7,12 @@ exports[`Components Header should render 1`] = `
   <h1
     class="Header-title-0-1-2"
   >
-    Hello world!
+    Hello
   </h1>
-  <div
-    class="SpinningLogo-logoContainer-0-1-3"
+  <p
+    class="Header-subTitle-0-1-3"
   >
-    <img
-      alt="parcelBack"
-      class="SpinningLogo-parcelBack-0-1-4"
-      src="test-file-stub"
-    />
-    <img
-      alt="parcelReact"
-      class="SpinningLogo-parcelReact-0-1-5"
-      src="test-file-stub"
-    />
-    <img
-      alt="parcelFront"
-      class="SpinningLogo-parcelFront-0-1-6"
-      src="test-file-stub"
-    />
-  </div>
+    world!
+  </p>
 </header>
 `;
