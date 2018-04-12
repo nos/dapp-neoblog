@@ -6,6 +6,9 @@ import Button from "antd/lib/button";
 import Message from "antd/lib/message";
 import Header from "./../../components/Header";
 
+import { injectNOS } from "./../../nos";
+import { injectStore } from "./../../store";
+
 const styles = {
   "@import": "https://fonts.googleapis.com/css?family=Source+Sans+Pro",
   "@global html, body": {
@@ -21,16 +24,18 @@ const styles = {
   }
 };
 
-const hasNOS = () => (window.NOS && window.NOS.V1 ? "true" : "false");
-const api = window.NOS && window.NOS.V1 ? window.NOS.V1 : {};
-
 class App extends React.Component {
+  static propTypes = {
+    classes: PropTypes.objectOf(PropTypes.any).isRequired,
+    nos: PropTypes.objectOf(PropTypes.any).isRequired,
+    store: PropTypes.objectOf(PropTypes.any).isRequired
+  };
+
   handleClick = async () => {
+    const { NOS, getAddress } = this.props.nos;
     try {
       Message.info(
-        hasNOS()
-          ? `Your address is ${await api.getAddress()}!`
-          : "You're not on nOs!"
+        NOS ? `Your address is ${await getAddress()}` : "nOs is not available!"
       );
     } catch (e) {
       Message.info(e);
@@ -39,12 +44,13 @@ class App extends React.Component {
 
   render() {
     const { classes } = this.props;
+    console.log(this.props.store.gavin);
     return (
       <div className={classes.App}>
         <Header title="A React boilerplate, with Parcel!" />
         <p className={classes.intro}>
-          To get started, edit <code>src/views/App/index.js</code> and save to
-          reload.
+          To get started, edit <code>src/views/App/index.js</code> and&nbsp;
+          save to reload.
         </p>
         <Button type="primary" onClick={this.handleClick}>
           Or click this button!
@@ -54,8 +60,4 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default injectSheet(styles)(App);
+export default injectStore(injectNOS(injectSheet(styles)(App)));

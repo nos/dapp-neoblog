@@ -7,11 +7,11 @@ import SpinningLogo from "./../SpinningLogo";
 const styles = {
   header: {
     backgroundColor: "#11242D",
-    color: "white",
     padding: "24px",
     marginBottom: "32px"
   },
   title: {
+    color: "white",
     fontSize: "1.5em"
   }
 };
