@@ -38,7 +38,7 @@ class App extends React.Component {
         NOS ? `Your address is ${await getAddress()}` : "nOs is not available!"
       );
     } catch (e) {
-      Message.info(e);
+      Message.info(e); // eslint-disable-line
     }
   };
 
