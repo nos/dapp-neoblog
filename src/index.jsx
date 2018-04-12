@@ -13,7 +13,7 @@ import "antd/dist/antd.css";
 
 import App from "./views/App";
 
-import { StoreProvider } from "./store";
+import { StoreProvider, defaultStore } from "./store";
 
 const jss = createJss();
 jss.use(vendorPrefixer(), camelCase(), globalStyles());
@@ -24,10 +24,27 @@ class NeoBlog extends React.Component {
   };
 
   /* eslint-disable react/no-unused-state */
-  // Disable unused state because it's passed as store.
-  state = {
-    gavin: "dance"
-  };
+  state = Object.assign(defaultStore, {
+    domain: Object.assign(defaultStore.domain, {
+      setLatest: latest => {
+        this.setState({
+          domain: Object.assign(this.state.domain, { latest })
+        });
+      }
+    }),
+    article: Object.assign(defaultStore.article, {
+      setHash: hash => {
+        this.setState({
+          article: Object.assign(this.state.article, { hash })
+        });
+      },
+      setContent: content => {
+        this.setState({
+          article: Object.assign(this.state.article, { content })
+        });
+      }
+    })
+  });
   /* eslint-enable */
 
   render() {

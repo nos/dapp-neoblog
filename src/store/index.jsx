@@ -1,5 +1,12 @@
 import React from "react";
 
+const defaultStore = {
+  ipfs: "https://ipfs.infura.io/ipfs/",
+  neoblogHash: "85e9cc1f18fcebf9eb8211a128807e38d094542a",
+  domain: { latest: false },
+  article: { hash: false, content: false }
+};
+
 const {
   Provider: StoreProvider,
   Consumer: StoreConsumer
@@ -11,4 +18,4 @@ const injectStore = Component => props => (
   </StoreConsumer>
 );
 
-export { StoreProvider, StoreConsumer, injectStore };
+export { StoreProvider, StoreConsumer, injectStore, defaultStore };

@@ -1,10 +1,14 @@
 import React from "react";
 import injectSheet from "react-jss";
 import PropTypes from "prop-types";
+import {
+  str2hexstring,
+  int2hex,
+  hexstring2str
+} from "@cityofzion/neon-js/src/utils";
 
-import Button from "antd/lib/button";
-import Message from "antd/lib/message";
 import Header from "./../../components/Header";
+import Reader from "./../../components/Reader";
 
 import { injectNOS } from "./../../nos";
 import { injectStore } from "./../../store";
@@ -19,8 +23,8 @@ const styles = {
   App: {
     textAlign: "center"
   },
-  intro: {
-    fontSize: "large"
+  content: {
+    fontSize: "1.6em"
   }
 };
 
@@ -31,30 +35,54 @@ class App extends React.Component {
     store: PropTypes.objectOf(PropTypes.any).isRequired
   };
 
-  handleClick = async () => {
-    const { NOS, getAddress } = this.props.nos;
-    try {
-      Message.info(
-        NOS ? `Your address is ${await getAddress()}` : "nOs is not available!"
-      );
-    } catch (e) {
-      Message.info(e);
+  componentWillMount = async () => {
+    const { NOS } = this.props.nos;
+    if (NOS) {
+      await this.handleLatest();
+      await this.handleHash();
     }
   };
 
+  handleLatest = async () => {
+    const { getStorage } = this.props.nos;
+    const { neoblogHash, domain } = this.props.store;
+
+    const storageProps = {
+      scriptHash: neoblogHash,
+      key: "post.latest"
+    };
+
+    domain.setLatest(parseInt(await getStorage(storageProps), 10));
+  };
+
+  handleHash = async () => {
+    const { getStorage } = this.props.nos;
+    const { neoblogHash, domain, article } = this.props.store;
+
+    const hashProps = {
+      scriptHash: neoblogHash,
+      key: `${str2hexstring("post.")}${int2hex(domain.latest)}`,
+      encode: false
+    };
+
+    article.setHash(hexstring2str(await getStorage(hashProps)));
+  };
+
   render() {
-    const { classes } = this.props;
-    console.log(this.props.store.gavin);
+    const { classes, store: { domain } } = this.props;
+
     return (
       <div className={classes.App}>
-        <Header title="A React boilerplate, with Parcel!" />
-        <p className={classes.intro}>
-          To get started, edit <code>src/views/App/index.js</code> and&nbsp;
-          save to reload.
-        </p>
-        <Button type="primary" onClick={this.handleClick}>
-          Or click this button!
-        </Button>
+        <Header
+          title="Welcome to NeoBlog!"
+          subTitle="This is example an implementation of NeoBlog on nOs. You can instantly see&nbsp;
+          the latest article, thanks to our nOs integration."
+        />
+        {!domain.latest ? (
+          <p className={classes.content}>Fetching latest article...</p>
+        ) : (
+          <Reader />
+        )}
       </div>
     );
   }
