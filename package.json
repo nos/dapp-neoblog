@@ -10,6 +10,11 @@
     "test": "jest --all --verbose --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "test:local": "jest --all --verbose --coverage"
   },
+  "engines": {
+    "node": ">=8.11.0",
+    "npm": ">=5.6.0",
+    "yarn": ">=1.5.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jeroenptrs/react-stack-boilerplate.git"
