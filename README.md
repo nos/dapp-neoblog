@@ -2,7 +2,7 @@
   <img src="./logo.png" width="150px" /> 
 </p>
 
-<h1 align="center">neoblog on nOs</h1>
+<h1 align="center">neoblog on nOS</h1>
 
 <p align="center">
   This creates a project <strong>boilerplate</strong> for <strong>React</strong> with a custom stack
