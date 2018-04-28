@@ -1,12 +1,12 @@
 import React from "react";
 
-const api = window.NOS && window.NOS.V1 ? window.NOS.V1 : {};
+const nos = window.NOS && window.NOS.V1 ? window.NOS.V1 : {};
 
 const { Provider, Consumer } = React.createContext({
   NOS: !!window.NOS && !!window.NOS.V1,
-  getAddress: () => api.getAddress(),
-  getStorage: ({ scriptHash, key, encode = true }) =>
-    api.getStorage(scriptHash, key, { encode })
+  getAddress: () => nos.getAddress(),
+  getStorage: (scriptHash, key, options = { encode: true }) =>
+    nos.getStorage(scriptHash, key, options)
 });
 
 const injectNOS = Component => props => (

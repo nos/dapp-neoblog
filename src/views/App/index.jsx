@@ -47,25 +47,27 @@ class App extends React.Component {
     const { getStorage } = this.props.nos;
     const { neoblogHash, domain } = this.props.store;
 
-    const storageProps = {
-      scriptHash: neoblogHash,
-      key: "post.latest"
-    };
+    const latest = parseInt(
+      await getStorage(neoblogHash, "post.latest", { encode: true }),
+      16
+    );
 
-    domain.setLatest(parseInt(await getStorage(storageProps), 10));
+    domain.setLatest(latest);
   };
 
   handleHash = async () => {
     const { getStorage } = this.props.nos;
     const { neoblogHash, domain, article } = this.props.store;
 
-    const hashProps = {
-      scriptHash: neoblogHash,
-      key: `${str2hexstring("post.")}${int2hex(domain.latest)}`,
-      encode: false
-    };
-
-    article.setHash(hexstring2str(await getStorage(hashProps)));
+    article.setHash(
+      hexstring2str(
+        await getStorage(
+          neoblogHash,
+          `${str2hexstring("post.")}${int2hex(domain.latest)}`,
+          { encode: false }
+        )
+      )
+    );
   };
 
   render() {
